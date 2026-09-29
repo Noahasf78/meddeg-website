@@ -59,7 +59,7 @@ npm run test:ui       # Browser tests
 npm run test:mobile   # Mobile navigation tests
 ```
 
-Run the production build before the UI suite. Browser tests currently require Microsoft Edge; the mobile suite also requires Playwright WebKit (`npx playwright install webkit`).
+Run the production build before the UI suite.
 
 ## Deployment
 
