@@ -1,0 +1,1 @@
+Place original licensed image assets here. Configure their paths, alt text and optional crop positions in src/content/images.ts. Until then, Media renders an intentional labeled placeholder. Screenshots are never used as image assets.

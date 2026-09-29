@@ -1,0 +1,35 @@
+{
+  "name": "med-deg",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test:ui": "playwright test",
+    "test:mobile": "playwright test --config playwright.mobile.config.ts",
+    "test:server": "tsx --conditions=react-server --test tests/server/contact.test.ts"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "latest",
+    "@fontsource/dm-serif-display": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "tailwindcss": "latest",
+    "tsx": "^4.23.15",
+    "typescript": "latest"
+  }
+}

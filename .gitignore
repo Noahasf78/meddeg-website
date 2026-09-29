@@ -1,0 +1,23 @@
+node_modules/
+.next/
+out/
+test-results/
+playwright-report/
+.env*
+!.env.example
+*.tsbuildinfo
+
+# Additional test artifacts
+blob-report/
+playwright/.cache/
+coverage/
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
