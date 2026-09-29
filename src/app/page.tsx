@@ -1,4 +1,5 @@
 import { ButtonLink, ContactCTA, Media, SectionHeading } from '@/components/ui';
+import type { ImageId } from '@/content/images';
 import { ContactForm } from '@/components/contact-form';
 export const metadata = { alternates: { canonical: '/' } };
 const previews = [
@@ -6,7 +7,7 @@ const previews = [
   { title: 'Følge til avtaler', text: 'Vi blir med på handleturen, til legen, fysioterapeuten eller frisøren, og sikrer trygg transport begge veier.' },
   { title: 'Sosialt samvær', text: 'En fast time til samtale, kortspill eller en tur i nabolaget. Selskap som gjør godt.' },
 ];
-const week = [
+const week: { id: ImageId; caption: string }[] = [
   { id: 'monday', caption: 'Mandag: tur til legen og fysioterapeuten.' },
   { id: 'tuesday', caption: 'Tirsdag: handling og litt baking før barnebarna kommer på besøk.' },
   { id: 'wednesday', caption: 'Onsdag: en rolig prat over kaffen.' },

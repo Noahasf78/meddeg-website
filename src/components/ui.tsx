@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
-import { images } from '@/content/images';
+import { images, type ImageAsset, type ImageId } from '@/content/images';
 import { site } from '@/content/site';
 
 export function Logo() {
@@ -14,8 +14,8 @@ export function SectionHeading({ eyebrow, title, children, hero = false }: { eye
   const Tag = hero ? 'h1' : 'h2';
   return <div className={`section-heading ${hero ? 'page-heading' : ''}`}><p className="eyebrow">{eyebrow}</p><Tag>{title}</Tag>{children && <div className="intro">{children}</div>}</div>;
 }
-export function Media({ id, className = '', priority = false }: { id: string; className?: string; priority?: boolean }) {
-  const asset = images[id];
+export function Media({ id, className = '', priority = false }: { id: ImageId; className?: string; priority?: boolean }) {
+  const asset: ImageAsset = images[id];
   return <div className={`media ${asset.treatment || ''} ${className}`}>
     <Image src={asset.src} alt={asset.alt} fill quality={asset.quality} sizes={asset.sizes || '(max-width: 639px) calc(100vw - 40px), (max-width: 899px) calc(100vw - 64px), 480px'} fetchPriority={priority ? 'high' : undefined} loading={priority ? 'eager' : 'lazy'} style={{ objectFit: 'cover', objectPosition: asset.position || 'center' }} />
   </div>;
