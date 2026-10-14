@@ -239,3 +239,33 @@ details[open] .faq-indicator::after { content: '−'; }
   .photo-intro { grid-template-columns: 1.1fr 1fr; gap: 56px; }
   .hero-photo .media { aspect-ratio: 1; }
 }
+
+/* Founder portraits integrated into the About story. */
+.story-founders { display: grid; gap: 28px; width: 100%; max-width: 600px; margin-inline: auto; }
+.story-founders figure { width: 100%; max-width: 260px; margin-inline: auto; min-width: 0; }
+.story-founders .founder-portrait { aspect-ratio: 4 / 5; }
+.story-founders figcaption { margin-top: 16px; text-align: center; }
+.story-founders h2 { font-size: 1.35rem; line-height: 1.3; }
+.story-founders figcaption p { margin-top: 6px; font-size: .875rem; color: #516151; text-wrap: balance; }
+@media (min-width: 640px) {
+  .story-founders { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .story-founders figure { max-width: none; }
+}
+@media (min-width: 900px) {
+  .story-with-founders { grid-template-columns: .95fr 1.05fr; gap: 40px; }
+  .story-with-founders > :first-child { grid-column: 2; grid-row: 1; }
+  .story-founders { grid-column: 1; grid-row: 1; gap: 20px; }
+}
+
+/* Small spacing refinements, scoped to the founder story. */
+.founder-story-section { padding-bottom: 44px; }
+@media (min-width: 640px) {
+  .founder-story-section { padding-bottom: 60px; }
+}
+@media (min-width: 900px) {
+  .founder-story-section { padding-bottom: 81px; }
+  .story-founders { position: relative; top: -8px; }
+}
+@media (min-width: 1152px) {
+  .story-with-founders { max-width: calc(var(--page-width) + 48px); grid-template-columns: 500px minmax(0, 1fr); gap: 56px; }
+}
