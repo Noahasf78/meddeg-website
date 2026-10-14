@@ -10,7 +10,7 @@ const previews = [
 const week: { id: ImageId; caption: string }[] = [
   { id: 'monday', caption: 'Mandag: tur til legen og fysioterapeuten.' },
   { id: 'tuesday', caption: 'Tirsdag: handling og litt baking før barnebarna kommer på besøk.' },
-  { id: 'wednesday', caption: 'Onsdag: en rolig prat over kaffen.' },
+  { id: 'wednesday', caption: 'Onsdag: en rolig samtale over kaffen.' },
   { id: 'thursday', caption: 'Torsdag: kort tur i nabolaget mens været tillater det.' },
 ];
 export default function Home() {
