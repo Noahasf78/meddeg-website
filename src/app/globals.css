@@ -109,6 +109,7 @@ button,summary { cursor: pointer; }
 .footer-grid { display: grid; gap: 32px; padding-bottom: 44px; }
 .site-footer .logo { color: white; }
 .site-footer .logo+p { margin-top: 14px; }
+.site-footer .footer-company { font-size: .8rem; margin-bottom: 8px; }
 .site-footer h2 { color: #f5a56f; text-transform: uppercase; letter-spacing: .15em; font: 700 .7rem var(--font-sans); margin-bottom: 18px; }
 .site-footer address { display: flex; flex-direction: column; font-style: normal; }
 .site-footer address a { width: fit-content; padding-block: 6px; }
