@@ -28,5 +28,5 @@ export const faqs = [
   { question: 'Må jeg binde meg til en fast avtale?', answer: 'Nei. Du kan starte med noen timer i uken eller måneden og justere underveis, eller bestille etter behov uten fast avtale.' },
   { question: 'Får jeg samme kontaktperson hver gang?', answer: 'Ja, det er kjernen i tjenestene våre. Du får 1–2 faste kontaktpersoner som blir kjent med deg og dine rutiner.' },
   { question: 'Kan pårørende være med på første besøk?', answer: 'Selvfølgelig. Mange familier deltar i første møte hvor vi kartlegger hjelpebehovet, og vi holder gjerne kontakten løpende.' },
-  { question: 'Hvor raskt kan dere starte?', answer: 'Vanligvis innen en uke etter første samtale, avhengig av hvor i Oslo du bor.' },
+  { question: 'Hvor raskt kan dere starte?', answer: 'Vanligvis innen en uke etter første samtale, avhengig av hvor du bor.' },
 ];
