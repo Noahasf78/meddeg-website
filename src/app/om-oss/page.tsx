@@ -1,8 +1,9 @@
+import { socialMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import { images } from '@/content/images';
 import { ContactCTA, SectionHeading } from '@/components/ui';
 import { values } from '@/content/site';
-export const metadata = { title: 'Om oss', description: 'Historien bak Med Deg og verdiene våre: verdighet, åpenhet, kontinuitet og lokal tilhørighet.', alternates: { canonical: '/om-oss' } };
+export const metadata = { ...socialMetadata('/om-oss'), title: 'Om oss', description: 'Historien bak Med Deg og verdiene våre: verdighet, åpenhet, kontinuitet og lokal tilhørighet.', alternates: { canonical: '/om-oss' } };
 export default function About() {
   return <><section className="tinted section founder-story-section"><div className="container story story-with-founders"><div><SectionHeading hero eyebrow="Vår historie og vår visjon" title="Fra rettssalen og sykehuset til fast følge"/><div className="prose"><p>Med Deg AS ble startet mellom en sykehuskorridor og en rettssal.</p><p>Vi jobber begge i travle yrker; den ene av oss på sykehus, den andre i rettssalen. Og vi har begge sett det samme: eldre som er mye alene. En pasient som ingen spør hvordan det går med. Et menneske som bare trengte litt selskap.</p><p>Vi ble ikke kvitt den tanken. Hva om noen hadde tid til å være der, som selve jobben?</p><p>Det er derfor Med Deg finnes. Vi tilbyr det enkle: en god prat, hjelp hjemme, hjelp med ærender. Ingen skal være alene, og med oss slipper de det.</p></div></div><div className="story-founders">
         <figure><div className="media founder-portrait"><Image src={images.zain.src} alt={images.zain.alt} fill quality={90} sizes="(max-width: 639px) 260px, (max-width: 899px) 288px, (max-width: 1087px) calc(23.75vw - 34.7px), (max-width: 1151px) 224px, 240px" style={{ objectFit: 'cover', objectPosition: images.zain.position }}/></div><figcaption><h2>Zain Arshad</h2><p>Lege og grunnlegger av Med Deg AS</p></figcaption></figure>

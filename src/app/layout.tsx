@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { indexingPolicy } from '@/lib/seo';
 import '@fontsource/dm-sans/latin-400.css';
 import '@fontsource/dm-sans/latin-500.css';
 import '@fontsource/dm-sans/latin-700.css';
@@ -14,8 +15,7 @@ export const metadata: Metadata = {
   // Prevent iOS data detectors from inserting links into server-rendered text
   // before React hydrates. Explicit tel:, mailto: and map links still work.
   formatDetection: { telephone: false, date: false, email: false, address: false },
-  // This first iteration contains demo forms and unconfirmed business content.
-  robots: { index: false, follow: false },
+  robots: indexingPolicy().robots,
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="nb"><body><a className="skip-link" href="#main">Hopp til innhold</a><Header/><main id="main">{children}</main><Footer/></body></html>;

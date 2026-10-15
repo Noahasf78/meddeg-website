@@ -1,8 +1,9 @@
+import { socialMetadata } from '@/lib/seo';
 import { Media, SectionHeading } from '@/components/ui';
 import { ContactForm } from '@/components/contact-form';
 import { plans, site } from '@/content/site';
 import { isPackageId } from '@/lib/contact-schema';
-export const metadata = { title: 'Kontakt oss', description: `Ta kontakt med Med Deg for en uforpliktende prat. Ring 454 22 161 eller send e-post til ${site.email}.`, alternates: { canonical: '/kontakt' } };
+export const metadata = { ...socialMetadata('/kontakt'), title: 'Kontakt oss', description: `Ta kontakt med Med Deg for en uforpliktende prat. Ring 454 22 161 eller send e-post til ${site.email}.`, alternates: { canonical: '/kontakt' } };
 export default async function Contact({ searchParams }: { searchParams: Promise<{ avtale?: string }> }) {
   const { avtale } = await searchParams;
   const selectedPlan = plans.find(plan => plan.id === avtale)?.title;

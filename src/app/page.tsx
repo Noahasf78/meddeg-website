@@ -1,7 +1,8 @@
+import { socialMetadata, businessStructuredData } from '@/lib/seo';
 import { ButtonLink, ContactCTA, Media, SectionHeading } from '@/components/ui';
 import type { ImageId } from '@/content/images';
 import { ContactForm } from '@/components/contact-form';
-export const metadata = { alternates: { canonical: '/' } };
+export const metadata = { ...socialMetadata('/'), alternates: { canonical: '/' } };
 const previews = [
   { title: 'Praktisk hjelp hjemme', text: 'Rydding, vask, handling og enkel matlaging, så hjemmet føles levelig og trygt.' },
   { title: 'Følge til avtaler', text: 'Vi blir med på handleturen, til legen, fysioterapeuten eller frisøren, og sikrer trygg transport begge veier.' },
@@ -15,6 +16,7 @@ const week: { id: ImageId; caption: string }[] = [
 ];
 export default function Home() {
   return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessStructuredData).replace(/</g, '\\u003c') }}/>
     <section className="container home-hero section"><div>
       <SectionHeading hero eyebrow="Praktisk og sosial støtte" title="Tilstede når hverdagen krever det"><p>Ensomhet er utbredt blant eldre og det ønsker vi å gjøre noe med! Derfor tilbyr Med Deg praktisk og sosial hjelp. Fra husarbeid og følge til legetimer - til en god prat over en kopp kaffe - vi er med deg.</p></SectionHeading>
       <a href="/tjenester" className="text-link mobile-service-link">Se hva vi kan hjelpe med <span aria-hidden="true">→</span></a>
