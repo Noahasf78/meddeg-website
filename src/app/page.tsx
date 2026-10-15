@@ -23,7 +23,7 @@ export default function Home() {
       <ContactForm compact/>
     </div><div className="hero-photo"><Media id="hero" priority/><figure className="quote-badge"><blockquote>«De kommer når de sier de skal.»</blockquote><figcaption>Randi, 82 år, Årvoll</figcaption></figure></div></section>
     <section className="trust-strip" aria-label="Trygghet og kontinuitet"><div className="container grid gap-8 md:grid-cols-3">{[
-      ['Godkjente hjelpere', 'Alle hos oss er referansesjekket og er kvalitetssikret.'],
+      ['Godkjente besøksvenner', 'Alle hos oss er referansesjekket og er kvalitetssikret.'],
       ['Samme ansikt hver gang', 'Du møter de samme 1–2 personene, ikke en ny fremmed hver uke.'],
       ['Fleksibel avtale', 'Fra noen timer i uken til daglig følge - tilpasset akkurat ditt behov.'],
     ].map(([title, text]) => <div key={title}><h2>{title}</h2><p>{text}</p></div>)}</div></section>
