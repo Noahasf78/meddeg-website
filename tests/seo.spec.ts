@@ -26,17 +26,17 @@ for (const item of pages) {
   });
 }
 
-test('indexing requires launch approval AND the production environment', () => {
-  expect(productionIndexingApproved).toBe(false);
+test('indexing is enabled only on approved production deployments', () => {
+  expect(productionIndexingApproved).toBe(true);
   for (const environment of ['production', 'preview', 'development', 'unexpected']) {
     const blocked = indexingPolicy(environment, false);
     expect(blocked.robots).toEqual({ index: false, follow: false });
     expect(blocked.robotsFile.sitemap).toBeUndefined();
     expect(blocked.robotsFile.rules).toEqual({ userAgent: '*', allow: '/' });
-    const approved = indexingPolicy(environment, true);
-    expect(approved.indexable).toBe(environment === 'production');
-    expect(approved.robots).toEqual({ index: environment === 'production', follow: environment === 'production' });
-    expect(approved.robotsFile.sitemap).toBe(environment === 'production' ? 'https://meddeg.com/sitemap.xml' : undefined);
+    const policy = indexingPolicy(environment);
+    expect(policy.indexable).toBe(environment === 'production');
+    expect(policy.robots).toEqual({ index: environment === 'production', follow: environment === 'production' });
+    expect(policy.robotsFile.sitemap).toBe(environment === 'production' ? 'https://meddeg.com/sitemap.xml' : undefined);
   }
 });
 

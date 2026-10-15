@@ -1,9 +1,9 @@
 import type { Metadata, MetadataRoute } from 'next';
 import { site } from '@/content/site';
 
-// Change only after the canonical domain is live and its redirects/headers are verified.
-// Vercel previews and local builds remain noindex even after launch approval.
-export const productionIndexingApproved = false;
+// Production indexing is approved after canonical-domain verification.
+// Vercel previews and local builds remain noindex.
+export const productionIndexingApproved = true;
 
 export function indexingPolicy(environment = process.env.VERCEL_ENV, approved: boolean = productionIndexingApproved) {
   const indexable = approved && environment === 'production';
