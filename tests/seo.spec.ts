@@ -20,11 +20,28 @@ for (const item of pages) {
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', item.title);
     await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', item.description);
     await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', 'nb_NO');
-    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary');
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://meddeg.com/images/med-deg-og.png');
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
+    await expect(page.locator('meta[property="og:image:type"]')).toHaveAttribute('content', 'image/png');
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute('content', 'Med Deg – en yngre og en eldre kvinne ser på en mobiltelefon sammen i en park');
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', 'https://meddeg.com/images/med-deg-og.png');
+    await expect(page.locator('meta[name="twitter:image:alt"]')).toHaveAttribute('content', 'Med Deg – en yngre og en eldre kvinne ser på en mobiltelefon sammen i en park');
     await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', item.title);
     await expect(page.locator('meta[name="twitter:description"]')).toHaveAttribute('content', item.description);
   });
 }
+
+test('sharing image is served as a 1200 by 630 PNG', async ({ request }) => {
+  const response = await request.get('/images/med-deg-og.png');
+  expect(response.status()).toBe(200);
+  expect(response.headers()['content-type']).toContain('image/png');
+  const image = await response.body();
+  expect(image.subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+  expect(image.readUInt32BE(16)).toBe(1200);
+  expect(image.readUInt32BE(20)).toBe(630);
+});
 
 test('indexing is enabled only on approved production deployments', () => {
   expect(productionIndexingApproved).toBe(true);

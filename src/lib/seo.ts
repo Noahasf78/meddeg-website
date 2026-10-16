@@ -17,9 +17,16 @@ export function indexingPolicy(environment = process.env.VERCEL_ENV, approved: b
 }
 
 export function socialMetadata(path: string): Pick<Metadata, 'openGraph' | 'twitter'> {
+  const image = {
+    url: new URL('/images/med-deg-og.png', site.url).href,
+    width: 1200,
+    height: 630,
+    type: 'image/png',
+    alt: 'Med Deg – en yngre og en eldre kvinne ser på en mobiltelefon sammen i en park',
+  };
   return {
-    openGraph: { siteName: site.name, locale: 'nb_NO', type: 'website', url: new URL(path, site.url).href },
-    twitter: { card: 'summary' },
+    openGraph: { siteName: site.name, locale: 'nb_NO', type: 'website', url: new URL(path, site.url).href, images: [image] },
+    twitter: { card: 'summary_large_image', images: [{ url: image.url, alt: image.alt }] },
   };
 }
 
