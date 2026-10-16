@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import { indexingPolicy } from '@/lib/seo';
 import '@fontsource/dm-sans/latin-400.css';
 import '@fontsource/dm-sans/latin-500.css';
@@ -18,5 +19,5 @@ export const metadata: Metadata = {
   robots: indexingPolicy().robots,
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="nb"><body><a className="skip-link" href="#main">Hopp til innhold</a><Header/><main id="main">{children}</main><Footer/></body></html>;
+  return <html lang="nb"><body><a className="skip-link" href="#main">Hopp til innhold</a><Header/><main id="main">{children}</main><Footer/><Analytics/></body></html>;
 }
